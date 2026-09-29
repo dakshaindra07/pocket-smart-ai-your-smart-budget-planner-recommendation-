@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#102a43">
+  <meta name="description" content="Plan your home, celebrations and jewelry around a budget that feels right.">
+  <title>{% block title %}PocketSmart AI{% endblock %}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', path='styles.css') }}">
+  <script src="{{ url_for('static', path='app.js') }}" defer></script>
+</head>
+<body class="{% block body_class %}{% endblock %}">
+  <header class="site-header {% if not user %}site-header-public{% endif %}">
+    <a class="brand" href="{{ '/dashboard' if user else '/' }}" aria-label="PocketSmart AI home"><span class="brand-mark" aria-hidden="true">P</span><span>PocketSmart <b>AI</b></span></a>
+    {% if user %}
+    <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false" data-nav-toggle><span></span><span></span></button>
+    <nav class="main-nav" aria-label="Main navigation" data-nav>
+      <a href="/dashboard">Dashboard</a><a href="/financial-profile">Budget Profile</a><a href="/home-planner">Home Planner</a><a href="/party-planner">Party Planner</a><a href="/jewelry-planner">Jewelry Planner</a><a href="/history">History</a>
+    </nav>
+    <div class="header-user"><span class="avatar" aria-hidden="true">{{ (user.full_name or user.username)[0]|upper }}</span><span class="header-username">{{ user.full_name or user.username }}</span><form action="/logout" method="post"><button class="logout-button" type="submit">Log out</button></form></div>
+    {% else %}
+    <nav class="public-nav" aria-label="Public navigation"><a href="/#planners">Planners</a><a href="/login">Sign in</a><a class="button button-small button-light" href="/register">Create account</a></nav>
+    {% endif %}
+  </header>
+  <main id="main-content">{% block content %}{% endblock %}</main>
+  <footer class="site-footer"><a class="footer-brand" href="/">PocketSmart <b>AI</b></a><span>Thoughtful plans for the things you care about.</span><span>© 2026 PocketSmart AI</span></footer>
+  <div class="toast" role="status" aria-live="polite" data-toast></div>
+  {% block scripts %}{% endblock %}
+</body>
+</html>

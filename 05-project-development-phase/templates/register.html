@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Create account | PocketSmart AI{% endblock %}
+{% block body_class %}auth-page{% endblock %}
+{% block content %}
+<section class="auth-layout">
+  <div class="auth-aside auth-aside-register"><div><p class="eyebrow light-eyebrow">YOUR MONEY, YOUR MOMENTS</p><h1>Make the<br>numbers work<br>for you.</h1><p>One account. A little more confidence in every big decision.</p></div><span class="auth-aside-note">POCKETSMART AI <span>·</span> PLAN WITH PURPOSE</span></div>
+  <div class="auth-main"><form class="auth-form" data-auth-form="register" action="/register" method="post"><p class="eyebrow">A GOOD PLACE TO START</p><h2>Create account</h2><p class="auth-description">Set up your private planning space in a moment.</p>
+    <div class="form-error" data-form-error role="alert" hidden></div>
+    <label for="register-name">Full name <span class="optional">Optional</span></label><input id="register-name" name="full_name" autocomplete="name" maxlength="100" placeholder="How should we greet you?">
+    <label for="register-username">Username</label><input id="register-username" name="username" autocomplete="username" required minlength="3" maxlength="40" pattern="[A-Za-z0-9_.\-]+" placeholder="3–40 letters, numbers or . _ -">
+    <label for="register-email">Email address</label><input id="register-email" name="email" type="email" autocomplete="email" required maxlength="254" placeholder="you@example.com">
+    <label for="register-password">Password</label><input id="register-password" name="password" type="password" autocomplete="new-password" required minlength="8" maxlength="128" placeholder="At least 8 characters">
+    <button class="button button-dark button-submit" type="submit">Create my account <span aria-hidden="true">↗</span></button>
+    <p class="auth-switch">Already have an account? <a href="/login{% if next %}?next={{ next|urlencode }}{% endif %}">Sign in</a></p>
+  </form></div>
+</section>
+{% endblock %}

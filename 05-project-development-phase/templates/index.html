@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}PocketSmart AI | Spend with a plan{% endblock %}
+{% block body_class %}landing-page{% endblock %}
+{% block content %}
+<section class="landing-hero">
+  <div class="hero-image" role="img" aria-label="Sunlit, carefully furnished modern living room"></div>
+  <div class="hero-inner">
+    <p class="eyebrow light-eyebrow"><span class="eyebrow-mark"></span> MAKE ROOM FOR WHAT MATTERS</p>
+    <h1>AI-Powered Budget Planning for Everyday Needs</h1>
+    <p class="hero-subtitle">Turn a number into a plan for your home, your celebration or the piece you have been saving for.</p>
+    <div class="hero-actions"><a class="button button-accent" href="/register">Build your first plan <span aria-hidden="true">↗</span></a><a class="text-link light-link" href="#planners">Explore the planners <span aria-hidden="true">↓</span></a></div>
+    <div class="hero-note"><span class="live-indicator"></span>{% if ai_ready %}Gemini-powered recommendations are ready{% else %}Your planning space is ready{% endif %}<span class="note-divider"></span>Home · Gatherings · Jewelry</div>
+  </div>
+  <a class="hero-scroll" href="#planners" aria-label="Scroll to planning categories"><span></span> SCROLL TO EXPLORE</a>
+</section>
+<section class="landing-section planner-intro" id="planners">
+  <div class="section-heading"><div><p class="eyebrow">A LITTLE CLARITY GOES A LONG WAY</p><h2>Start with a budget.<br><span>Leave with a plan.</span></h2></div><p>Set a budget, tell us what matters, and get an itemized plan with search links to shops and services in India.</p></div>
+  <div class="feature-grid">
+    <a class="feature-card feature-home" href="/home-planner"><span class="feature-index">01 / HOME INTERIORS</span><span class="feature-symbol" aria-hidden="true">⌂</span><h3>Plan a home<br>interior refresh.</h3><p>Set a budget for lighting, furniture and the rooms you want to improve.</p><span class="feature-link">Open Home Planner <b aria-hidden="true">↗</b></span></a>
+    <a class="feature-card feature-party" href="/party-planner"><span class="feature-index">02 / PARTIES & EVENTS</span><span class="feature-symbol" aria-hidden="true">✳</span><h3>Plan a party<br>or event.</h3><p>Balance the venue, catering, decorations and entertainment for your guests.</p><span class="feature-link">Open Party Planner <b aria-hidden="true">↗</b></span></a>
+    <a class="feature-card feature-jewelry" href="/jewelry-planner"><span class="feature-index">03 / JEWELRY</span><span class="feature-symbol" aria-hidden="true">◇</span><h3>Plan a jewelry<br>purchase.</h3><p>Explore pieces for your occasion, style and budget, with optional outfit matching.</p><span class="feature-link">Open Jewelry Planner <b aria-hidden="true">↗</b></span></a>
+  </div>
+</section>
+<section class="quote-band"><span class="quote-mark" aria-hidden="true">“</span><blockquote>For once, we knew where every rupee was going before the big day arrived.</blockquote><p>PRIYA & ARJUN <span>·</span> EVENT PLANNERS</p></section>
+<section class="landing-cta"><div><p class="eyebrow">A BETTER FIRST STEP</p><h2>Your next big thing,<br>planned with care.</h2></div><a class="button button-dark" href="/register">Create your free account <span aria-hidden="true">↗</span></a></section>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Sign in | PocketSmart AI{% endblock %}
+{% block body_class %}auth-page{% endblock %}
+{% block content %}
+<section class="auth-layout">
+  <div class="auth-aside auth-aside-login"><div><p class="eyebrow light-eyebrow">A CALMER WAY TO PLAN</p><h1>Good plans<br>start here.</h1><p>Pick up where you left off. Your saved plans and ideas are waiting.</p></div><span class="auth-aside-note">POCKETSMART AI <span>·</span> PLAN WITH PURPOSE</span></div>
+  <div class="auth-main"><form class="auth-form" data-auth-form="login" action="/token" method="post"><p class="eyebrow">WELCOME BACK</p><h2>Sign in</h2><p class="auth-description">Your next thoughtful purchase starts with a clear plan.</p>
+    {% if registered %}<div class="notice notice-success">Your account is ready. Sign in to get started.</div>{% endif %}
+    <div class="form-error" data-form-error role="alert" hidden></div>
+    <label for="login-username">Username</label><input id="login-username" name="username" autocomplete="username" required minlength="3" maxlength="40" placeholder="Your username">
+    <label for="login-password">Password</label><input id="login-password" name="password" type="password" autocomplete="current-password" required minlength="8" placeholder="Your password">
+    <button class="button button-dark button-submit" type="submit">Sign in <span aria-hidden="true">↗</span></button>
+    <p class="auth-switch">New to PocketSmart? <a href="/register{% if next %}?next={{ next|urlencode }}{% endif %}">Create an account</a></p>
+  </form></div>
+</section>
+{% endblock %}
